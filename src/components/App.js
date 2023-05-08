@@ -3,7 +3,7 @@ import Header from "./Header"
 import Main from "./Main"
 import Footer from "./Footer"
 import PopupWithForm from "./PopupWithForm"
-import PopupWithImage from "./ImagePopup"
+import ImagePopup from "./ImagePopup"
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
@@ -115,7 +115,7 @@ function App() {
             />
             <span className="error nameInputAvatar-error" />
         </PopupWithForm>
-        <PopupWithImage card={selectedCard} onClose={closeAllPopups} />
+        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
     </div>
   )
 }
