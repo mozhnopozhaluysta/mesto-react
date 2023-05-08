@@ -1,8 +1,8 @@
-import React from "react"
+import React from "react";
 
 function Card(card) {
   function handleCardClick() {
-    card.onCardClick(card)
+    card.onCardClick(card);
   }
 
   return (
@@ -22,7 +22,7 @@ function Card(card) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;

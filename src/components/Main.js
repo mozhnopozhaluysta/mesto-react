@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react"
-import api from "../components/Api"
-import Card from "./Card"
-import profileEditAvatar from "../images/profile__edit-avatar.svg"
+import { useEffect, useState } from "react"; 
+import api from "../utils/Api";
+import Card from "./Card";
+import profileEditAvatar from "../images/profile__edit-avatar.svg";
 
 function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
-  const [userName, setUserName] = useState("")
-  const [userDescription, setUserDescription] = useState("")
-  const [userAvatar, setUserAvatar] = useState("")
-  const [cards, getInitialCards] = useState([])
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
+  const [cards, getInitialCards] = useState([]);
 
   useEffect(() => {
     api
       .getRealUserInfo()
       .then((profileUserInfo) => {
-        setUserName(profileUserInfo.name)
-        setUserDescription(profileUserInfo.about)
-        setUserAvatar(profileUserInfo.avatar)
+        setUserName(profileUserInfo.name);
+        setUserDescription(profileUserInfo.about);
+        setUserAvatar(profileUserInfo.avatar);
       })
-      .catch((error) => console.log(`Ошибка: ${error}`))
+      .catch((error) => console.log(`Ошибка: ${error}`));
 
     api
       .getInitialCards()
@@ -29,17 +29,13 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
             link: data.link,
             cardId: data._id,
           }))
-        )
+        );
       })
-      .catch((error) => console.log(`Ошибка: ${error}`))
-  }, [])
-
-
+      .catch((error) => console.log(`Ошибка: ${error}`));
+  }, []);
 
   return (
-
-
-     <main>
+    <main>
       <section className="profile">
         <div className="profile__container">
           <div className="profile__wrapper-relative">
@@ -52,7 +48,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
               className="profile__edit-avatar"
               type="button"
               onClick={() => {
-                onEditAvatar(true)
+                onEditAvatar(true);
               }}
             >
               <img
@@ -62,27 +58,26 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
               />
             </button>
           </div>
-        
 
-        <div className="profile__info">
-         <div className="profile__info-name">
-          <h1 className="profile__name">{userName}</h1>
-          <button
-            className="profile__edit-button"
-            type="button"
-            onClick={() => {
-              onEditProfile(true)
-            }}
-          ></button>
+          <div className="profile__info">
+            <div className="profile__info-name">
+              <h1 className="profile__name">{userName}</h1>
+              <button
+                className="profile__edit-button"
+                type="button"
+                onClick={() => {
+                  onEditProfile(true);
+                }}
+              ></button>
+            </div>
+            <p className="profile__details">{userDescription}</p>
           </div>
-          <p className="profile__details">{userDescription}</p>
-        </div>
         </div>
         <button
           className="profile__add-button"
           type="button"
           onClick={() => {
-            onAddPlace(true)
+            onAddPlace(true);
           }}
         ></button>
       </section>
@@ -98,7 +93,7 @@ function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardClick }) {
         ))}
       </section>
     </main>
-  )
+  );
 }
 
-export default Main
+export default Main;

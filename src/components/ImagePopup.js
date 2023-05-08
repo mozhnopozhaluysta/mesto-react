@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 function ImagePopup({ card, onClose }) {
   return (
@@ -15,7 +15,7 @@ function ImagePopup({ card, onClose }) {
         ></button>
       </figure>
     </div>
-  )
+  );
 }
 
-export default ImagePopup
+export default ImagePopup;

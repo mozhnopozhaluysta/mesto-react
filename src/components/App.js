@@ -1,28 +1,29 @@
-import React from "react"
-import Header from "./Header"
-import Main from "./Main"
-import Footer from "./Footer"
-import PopupWithForm from "./PopupWithForm"
-import ImagePopup from "./ImagePopup"
+import React from "react";
+import Header from "./Header";
+import Main from "./Main";
+import Footer from "./Footer";
+import PopupWithForm from "./PopupWithForm";
+import ImagePopup from "./ImagePopup";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] =
-    React.useState(false)
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
+    React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] =
-    React.useState(false)
+    React.useState(false);
 
-  const [selectedCard, setSelectedCard] = React.useState({})
+  const [selectedCard, setSelectedCard] = React.useState({});
 
   function closeAllPopups() {
-    setIsEditProfilePopupOpen(false)
-    setIsAddPlacePopupOpen(false)
-    setIsEditAvatarPopupOpen(false)
-    setSelectedCard({})
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setSelectedCard({});
   }
 
   return (
     <div className="body">
+      <div className="page">
         <Header />
         <Main
           onEditProfile={setIsEditProfilePopupOpen}
@@ -39,28 +40,28 @@ function App() {
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
         >
-            <input
-              className="popup__input popup__input_type_name"
-              id="popupName"
-              name="name"
-              type="text"
-              placeholder="Имя"
-              minLength="2"
-              maxLength="40"
-              required
-            />
-            <span className="error popupName-error" />
-            <input
-              className="popup__input popup__input_type_info"
-              id="popupInfo"
-              name="about"
-              type="text"
-              placeholder="О себе"
-              minLength="2"
-              maxLength="200"
-              required
-            />
-            <span className="error popupInfo-error" />
+          <input
+            className="popup__input popup__input_type_name"
+            id="popupName"
+            name="name"
+            type="text"
+            placeholder="Имя"
+            minLength="2"
+            maxLength="40"
+            required
+          />
+          <span className="error popupName-error" />
+          <input
+            className="popup__input popup__input_type_info"
+            id="popupInfo"
+            name="about"
+            type="text"
+            placeholder="О себе"
+            minLength="2"
+            maxLength="200"
+            required
+          />
+          <span className="error popupInfo-error" />
         </PopupWithForm>
 
         <PopupWithForm
@@ -70,26 +71,26 @@ function App() {
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
         >
-            <input
-              className="popup__input popup__input_type_img-name"
-              id="imgName"
-              name="name"
-              type="text"
-              placeholder="Название"
-              minLength="2"
-              maxLength="30"
-              required
-            />
-            <span className="error imgName-error" />
-            <input
-              className="popup__input popup__input_type_img-link"
-              id="imgLink"
-              name="link"
-              type="url"
-              placeholder="Ссылка на картинку"
-              required
-            />
-            <span className="error ImgLink-error" />
+          <input
+            className="popup__input popup__input_type_img-name"
+            id="imgName"
+            name="name"
+            type="text"
+            placeholder="Название"
+            minLength="2"
+            maxLength="30"
+            required
+          />
+          <span className="error imgName-error" />
+          <input
+            className="popup__input popup__input_type_img-link"
+            id="imgLink"
+            name="link"
+            type="url"
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <span className="error ImgLink-error" />
         </PopupWithForm>
 
         <PopupWithForm
@@ -105,19 +106,20 @@ function App() {
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
         >
-            <input
-              className="popup__input popup__input_type_link-avatar"
-              id="nameInputAvatar"
-              name="avatar"
-              type="url"
-              placeholder="Введите ссылку URL"
-              required
-            />
-            <span className="error nameInputAvatar-error" />
+          <input
+            className="popup__input popup__input_type_link-avatar"
+            id="nameInputAvatar"
+            name="avatar"
+            type="url"
+            placeholder="Введите ссылку URL"
+            required
+          />
+          <span className="error nameInputAvatar-error" />
         </PopupWithForm>
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
