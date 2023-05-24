@@ -8,6 +8,7 @@
 - JSX
 - JAVASCRIPT
 - useEffect
+- useContext
 - подключение к серверу в React
 
 ## Дальнейшие планы на улучшение проекта:
